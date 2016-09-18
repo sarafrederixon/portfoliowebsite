@@ -1,5 +1,6 @@
 {
+  "name": "NavigationOld",
+  "version": "0.0.0",
   "private": true,
-  "name": "Navigation",
   "main": "./Navigation.js"
 }

@@ -1,37 +1,46 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+require('./Navigation.scss');
 
-import React, { Component, PropTypes } from 'react';
-import cx from 'classnames';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Navigation.scss';
+var React = require('react');
 import Link from '../Link';
 
-class Navigation extends Component {
+var Navigation = React.createClass({
+  toggleDropdown: function() {
+    document.getElementsByClassName("ul-Nav")[0].classList.toggle("responsive");
+  },
 
-  static propTypes = {
-    className: PropTypes.string,
-  };
+  render: function() {
+    return <div>
+      <h1 className="Nav-Header">Sara Frederixon</h1>
+      <div className="Link-Div">
+          <ul className="ul-Nav">
 
-  render() {
-    return (
-      <div className={cx(s.root, this.props.className)} role="navigation">
-        <Link className={s.link} to="/about">About</Link>
-        <Link className={s.link} to="/contact">Contact</Link>
-        <span className={s.spacer}> | </span>
-        <Link className={s.link} to="/login">Log in</Link>
-        <span className={s.spacer}>or</span>
-        <Link className={cx(s.link, s.highlight)} to="/register">Sign up</Link>
+          <li> <Link className="Link" to="/">
+            <span>Home</span>
+          </Link> </li>
+
+          <li> <Link className="Link" to="/photography" activeClassName="active">
+            <span>Photography</span>
+          </Link> </li>
+
+          <li> <Link className="Link" to="projects" activeClassName="active">
+            <span>Projects</span>
+          </Link> </li>
+
+          <li> <Link className="Link" to="about" activeClassName="active">
+            <span>About</span>
+          </Link> </li>
+
+            <li className="icon">
+              <a onClick={this.toggleDropdown}>&#9776;</a>
+            </li>
+
+        </ul>
       </div>
-    );
+      <div className="hr-Div">
+        <hr />
+      </div>
+    </div>
   }
+});
 
-}
-
-export default withStyles(Navigation, s);
+export default Navigation;

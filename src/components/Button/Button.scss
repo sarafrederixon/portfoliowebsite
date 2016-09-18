@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.Button {
+  background-color: $teal-color;
+  color: #FFFFFF;
+  width: 190px;
+  padding: 12px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16pt;
+  margin: 10px;
+  font-weight: $font-weight-light;
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.Button:active, .Button:hover {
+  background-color: $button-hover-teal;
+}

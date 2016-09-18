@@ -14,6 +14,8 @@ import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
 
+require('../main.scss');
+
 class App extends Component {
 
   static propTypes = {
@@ -56,10 +58,7 @@ class App extends Component {
   render() {
     return !this.props.error ? (
       <div>
-        <Header />
         {this.props.children}
-        <Feedback />
-        <Footer />
       </div>
     ) : this.props.children;
   }

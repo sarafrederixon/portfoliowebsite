@@ -17,6 +17,8 @@ import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
+import LandingPage from './components/Landing';
+import Photography from './components/Photography'
 
 const router = new Router(on => {
   on('*', async (state, next) => {
@@ -24,18 +26,13 @@ const router = new Router(on => {
     return component && <App context={state.context}>{component}</App>;
   });
 
-  on('/contact', async () => <ContactPage />);
+  on('/photography', async () => <Photography />);
 
   on('/login', async () => <LoginPage />);
 
   on('/register', async () => <RegisterPage />);
 
-  on('*', async (state) => {
-    const query = `/graphql?query={content(path:"${state.path}"){path,title,content,component}}`;
-    const response = await fetch(query);
-    const { data } = await response.json();
-    return data && data.content && <ContentPage {...data.content} />;
-  });
+  on('*', async (state) => <LandingPage/> );
 
   on('error', (state, error) => state.statusCode === 404 ?
     <App context={state.context} error={error}><NotFoundPage /></App> :
