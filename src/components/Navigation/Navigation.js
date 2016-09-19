@@ -1,46 +1,57 @@
-require('./Navigation.scss');
-
-var React = require('react');
+import React, { Component, PropTypes } from 'react';
+import cx from 'classnames';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './Navigation.scss';
 import Link from '../Link';
 
-var Navigation = React.createClass({
-  toggleDropdown: function() {
-    document.getElementsByClassName("ul-Nav")[0].classList.toggle("responsive");
-  },
+class Navigation extends Component {
 
-  render: function() {
-    return <div>
-      <h1 className="Nav-Header">Sara Frederixon</h1>
-      <div className="Link-Div">
-          <ul className="ul-Nav">
+  static propTypes = {
+    className: PropTypes.string,
+  };
 
-          <li> <Link className="Link" to="/">
-            <span>Home</span>
-          </Link> </li>
+  toggleDropdown() {
+    return document.getElementsByClassName(s.ulNav)[0].classList.toggle(s.responsive);
+  };
 
-          <li> <Link className="Link" to="/photography" activeClassName="active">
-            <span>Photography</span>
-          </Link> </li>
+  render() {
+    return (
+      <div className={cx(s.root, this.props.className)} role="navigation">
 
-          <li> <Link className="Link" to="projects" activeClassName="active">
-            <span>Projects</span>
-          </Link> </li>
+        <h1 className={s.NavHeader}>Sara Frederixon</h1>
+        <div className={s.LinkDiv}>
+          <ul className={s.ulNav}>
 
-          <li> <Link className="Link" to="about" activeClassName="active">
-            <span>About</span>
-          </Link> </li>
+            <li> <Link className={s.Link} to="/">
+              <span>Home</span>
+            </Link> </li>
 
-            <li className="icon">
+            <li> <Link className={s.Link} to="/photography">
+              <span>Photography</span>
+            </Link></li>
+
+            <li> <Link className={s.Link} to="/projects">
+              <span>Projects</span>
+            </Link> </li>
+
+            <li> <Link className={s.Link} to="/about">
+              <span>About</span>
+            </Link> </li>
+
+            <li className={s.icon}>
               <a onClick={this.toggleDropdown}>&#9776;</a>
             </li>
 
-        </ul>
+          </ul>
+        </div>
+        <div className={s.hrDiv}>
+          <hr />
+        </div>
       </div>
-      <div className="hr-Div">
-        <hr />
-      </div>
-    </div>
+    );
   }
-});
 
-export default Navigation;
+}
+
+export default withStyles(Navigation, s);
+

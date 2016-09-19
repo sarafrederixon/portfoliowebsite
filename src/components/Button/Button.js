@@ -1,15 +1,17 @@
-var React = require('react');
-
+import React, { Component, PropTypes } from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './Button.scss';
 import Link from '../Link';
 
-require("./Button.scss");
+class Button extends Component {
 
-var Button = React.createClass({
-  render: function() {
-    return <Link className="Button" to={this.props.link}>
-      <span>{this.props.value}</span>
-    </Link>
+  render() {
+    return (
+      <Link className={s.Button} to={this.props.link}>
+        <span>{this.props.value}</span>
+      </Link>
+    );
   }
-});
+}
 
-export default Button;
+export default withStyles(Button, s);

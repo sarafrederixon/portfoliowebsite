@@ -10,11 +10,6 @@
 import React, { Component, PropTypes } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.scss';
-import Header from '../Header';
-import Feedback from '../Feedback';
-import Footer from '../Footer';
-
-require('../main.scss');
 
 class App extends Component {
 

@@ -1,6 +1,11 @@
 @import '../variables.scss';
 
-.Nav-Header {
+
+.root {
+
+}
+
+.NavHeader {
    color: $faded-blue-color;
    text-align: center;
    font-size: 40px;
@@ -9,7 +14,7 @@
    margin: 15px 0 4px 0;
 }
 
-.Link-Div {
+.LinkDiv {
    margin: 0 auto;
    text-align: center;
    padding: 0 0 10px 0;
@@ -31,7 +36,11 @@
    color: $faded-blue-color;
 }
 
-.hr-Div {
+.Link:active {
+  color: $faded-blue-color;
+}
+
+.hrDiv {
    margin: 0 auto;
    width: 700px;
    clear: left;
@@ -45,7 +54,7 @@ hr {
 }
 
 /* Remove margins and padding from the list, and add a black background color */
-ul.ul-Nav {
+ul.ulNav {
    list-style-type: none;
    margin-bottom: 0;
    margin-top: 5px;
@@ -53,38 +62,38 @@ ul.ul-Nav {
 }
 
 /* Style the links inside the list items */
-ul.ul-Nav li a {
+ul.ulNav li a {
    text-decoration: none;
 }
 
 /* Hide the list item that contains the link that should open and close the topnav on small screens */
-ul.ul-Nav li.icon {
+ul.ulNav li.icon {
    display: none;
 }
 
-ul.ul-Nav li {
+ul.ulNav li {
    display: inline;
 }
 
 @media (min-width: $screen-sm-min) {
-   .hr-Div {
+   .hrDiv {
       width: 700px;
    }
 }
 
 @media (max-width: $screen-sm-min) and (min-width: $screen-xs-min){
-   .hr-Div {
+   .hrDiv {
       padding: 0 8%;
       width: auto;
    }
 
-   ul.ul-Nav li a {
+   ul.ulNav li a {
       font-size: 18px;
    }
 }
 
 @media (max-width: $screen-xs-min) {
-   .hr-Div {
+   .hrDiv {
       margin: 0 auto;
       width: 85%;
    }
@@ -93,55 +102,59 @@ ul.ul-Nav li {
       width: 100%;
    }
 
-   .Nav-Header {
+   .NavHeader {
       font-size: 9vw;
    }
 
-   ul.ul-Nav {
+   ul.ulNav {
       padding: 0 40px;
    }
 
-   ul.ul-Nav li {
+   ul.ulNav li {
       float: left;
    }
 
-   ul.ul-Nav li a {
+   ul.ulNav li a {
       text-align: left;
       padding: 0px;
       margin: 0px;
       font-size: 17px;
    }
 
-   ul.ul-Nav li a:not(.active) {
+   ul.ulNav li a:not(.active) {
       display: none;
    }
 
-   ul.ul-Nav li.icon {
+  ul.ulNav li a:not(:active) {
+    display: none;
+  }
+
+   ul.ulNav li.icon {
       float: right;
       display: inline-block;
       margin-bottom: 10px;
    }
 
-   ul.ul-Nav li.icon a {
+   ul.ulNav li.icon a {
       float: right;
       display: inline-block;
    }
 
-   ul.ul-Nav.responsive {
+   ul.ulNav.responsive {
       position: relative;
    }
 
-   ul.ul-Nav.responsive li.icon {
+   ul.ulNav.responsive li.icon {
       position: absolute;
       right: 40px;
       top: 0;
       margin-bottom: 0px;
    }
-   ul.ul-Nav.responsive li {
+   ul.ulNav.responsive li {
       float: none;
       display: inline;
    }
-   ul.ul-Nav.responsive li a {
+   ul.ulNav.responsive li a {
       display: block;
       text-align: left;
    }
